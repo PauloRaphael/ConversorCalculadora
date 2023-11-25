@@ -1,16 +1,13 @@
 package conversores;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.*;
-import java.lang.*;
 
 public class Calculadora {
 
-    Scanner scan = new Scanner(System.in);
-    static int valor1, valor2, resultado = 0;
-    char operacao = ' ';
-	boolean operacaoValida = false;
+    private static Scanner scan = new Scanner(System.in);
+    static double value1, value2, resultado = 0;
+    static char operacao = ' ';
+	static boolean operacaoValida = false;
 
     public static void calcular() {
 	    
@@ -42,6 +39,8 @@ public class Calculadora {
     	            break;
     	        case '^':
     	            resultado = Math.pow(value1, value2);
+                    operacaoValida = true;
+                    break;
     	        default:
     	            System.out.println("Operação invalida!");
     	            operacaoValida = false;
@@ -54,7 +53,8 @@ public class Calculadora {
         	    
         	    System.out.print("O que deseja fazer com o valor? [+, -, *, /, ^, F(finalizar): ");
                 operacao = scan.next().charAt(0);
-                if(operacao == 'F') {
+                operacao = String.valueOf(operacao).toUpperCase().charAt(0);
+                if(operacao == 'F' && operacao != '+' && operacao != '-' && operacao != '/' && operacao != '*' && operacao != '^') {
                     break;
                 }
                 value1 = resultado;
