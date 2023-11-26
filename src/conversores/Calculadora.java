@@ -60,6 +60,7 @@ public class Calculadora {
                 value1 = resultado;
                 System.out.print("Digite o segundo valor: ");
                 value2 = scan.nextDouble();
+                scan.next();
             
     	    } else {
     	        break;
